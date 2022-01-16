@@ -4,7 +4,8 @@
   "description": "Criando uma arquitetura limpa usando typescript e TDD",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:staged": "jest"
   },
   "repository": {
     "type": "git",
