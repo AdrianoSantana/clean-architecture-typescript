@@ -1,6 +1,11 @@
+import { Sign } from 'crypto'
 import { MissingParamError } from '../errors/missing-param-error'
 import { HttpRequest, HttpResponse } from '../protocols/http'
 import { SignUpController } from './signUp'
+
+const makeSut = (): SignUpController => {
+  return new SignUpController()
+}
 
 describe('SignUp Controller', () => {
   test('Should return 400 if no name is provide', () => {
@@ -11,7 +16,7 @@ describe('SignUp Controller', () => {
         passwordConfirmation: 'any_password'
       }
     }
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpResponse: HttpResponse = sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new MissingParamError('name'))
@@ -25,7 +30,7 @@ describe('SignUp Controller', () => {
         passwordConfirmation: 'any_password'
       }
     }
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpResponse: HttpResponse = sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new MissingParamError('email'))
@@ -39,7 +44,7 @@ describe('SignUp Controller', () => {
         passwordConfirmation: 'any_password'
       }
     }
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpResponse: HttpResponse = sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new MissingParamError('password'))
@@ -53,7 +58,7 @@ describe('SignUp Controller', () => {
         password: 'any_password'
       }
     }
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpResponse: HttpResponse = sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new MissingParamError('passwordConfirmation'))
