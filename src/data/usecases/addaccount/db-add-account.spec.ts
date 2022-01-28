@@ -61,7 +61,6 @@ describe('SignUp Controller', () => {
   })
 
   test('Should call add account repository with correct values', async () => {
-    
     const { sut, addAccountRepositoryStub } = makeSut()
     const addSpy = jest.spyOn(addAccountRepositoryStub, 'add')
     const accountData: AddAccountModel = {
@@ -75,5 +74,17 @@ describe('SignUp Controller', () => {
       name: 'valid_name',
       password: 'hashed_password'
     })
+  })
+  
+  test('Should throw if add account repository throws', async () => {
+    const { sut, addAccountRepositoryStub } = makeSut()
+    jest.spyOn(addAccountRepositoryStub, 'add').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    const accountData: AddAccountModel = {
+      email: 'valid_email@mail.com',
+      name: 'valid_name',
+      password: 'valid_password'
+    }
+    const promise = sut.add(accountData)
+    await expect(promise).rejects.toThrow()
   })
 })
