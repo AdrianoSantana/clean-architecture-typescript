@@ -23,10 +23,10 @@ const makeAddAccountRepositoryStub = (): AddAccountRepository => {
   class AddAccountRepositoryStub implements AddAccountRepository {
     async add(accountData: AddAccountModel): Promise<AccountModel> {
       const fakeAccount: AccountModel = {
-        email: 'any_email@mail.com',
-        id: 'any_id',
-        name: 'any_name',
-        password: 'any_password'
+        email: 'valid_email@mail.com',
+        id: 'valid_id',
+        name: 'valid_name',
+        password: 'valid_password'
       }
       return new Promise((resolve) => resolve(fakeAccount))
     }
@@ -86,5 +86,21 @@ describe('SignUp Controller', () => {
     }
     const promise = sut.add(accountData)
     await expect(promise).rejects.toThrow()
+  })
+
+  test('Should return an account on success', async () => {
+    const { sut, addAccountRepositoryStub } = makeSut()
+    const accountData: AddAccountModel = {
+      email: 'valid_email@mail.com',
+      name: 'valid_name',
+      password: 'valid_password'
+    }
+    const account = await sut.add(accountData)
+    expect(account).toEqual({
+      id: 'valid_id',
+      email: 'valid_email@mail.com',
+      name: 'valid_name',
+      password: 'valid_password'
+    })
   })
 })
