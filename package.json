@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/AdrianoSantana/clean-architecture-typescript#readme",
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "git-commit-msg-linter": "^4.0.7",
     "validator": "^13.7.0"
   },
