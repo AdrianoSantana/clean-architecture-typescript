@@ -23,9 +23,12 @@
   },
   "homepage": "https://github.com/AdrianoSantana/clean-architecture-typescript#readme",
   "dependencies": {
+    "@shelf/jest-mongodb": "^2.2.0",
     "@types/bcrypt": "^5.0.0",
+    "@types/mongodb": "^4.0.7",
     "bcrypt": "^5.0.1",
     "git-commit-msg-linter": "^4.0.7",
+    "mongodb": "^4.3.1",
     "validator": "^13.7.0"
   },
   "devDependencies": {
