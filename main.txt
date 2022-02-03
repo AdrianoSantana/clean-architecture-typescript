@@ -19,7 +19,9 @@ cada middleware
 
 Isso dentro da pasta
 exemplo:
+
 /middlewares/body-parser.ts
+/middlewares/cors.spec.ts
 
 Para testar Middlewares necessitamos da biblioteca supertest --> npm i -D supertest @types/supertest
 O supertest serve para emular uma requisição HTTP
@@ -27,3 +29,14 @@ O supertest serve para emular uma requisição HTTP
 Testes de integração (Middlewares)
 
 Criamos rotas fakes e usamos o supertest.
+
+BodyParser
+
+Faz com que o express consiga entender requisições JSON
+
+CORS
+
+Abre as portas da nossa API, ela poderá ser acessada de fora do nosso domínio.
+Por default só funciona no mesmo servidor.	
+
+
