@@ -40,3 +40,9 @@ Abre as portas da nossa API, ela poderá ser acessada de fora do nosso domínio.
 Por default só funciona no mesmo servidor.	
 
 
+SETAR CONTENT TYPE PARA JSON
+
+Vamos setar o content type da nossa API para JSON
+O default do Express é "adivinhar" o content-type. Por isso é bom SETAR o nosso content type
+isso é feito setando o header.
+res.type('json')
