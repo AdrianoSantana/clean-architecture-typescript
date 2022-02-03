@@ -8,3 +8,22 @@ Criamos nossos Factorys
 Camada Altamente Acoplada. Conhece todas as outras camadas.
 Não criamos testes de unidades para esta camada, apena criamos testes de integração.
 
+Dentro do main criamos alguns arquivos:
+
+Server.ts --> Onde criamos o app
+/config/app.ts --> Onde inicializamos o nosso app
+/config/middlewares --> Fica o arquivo que centraliza nossos middlewares
+
+Como queremos testar nossos middlewares, usando testes de integração, precisamos criar arquivos separados para
+cada middleware
+
+Isso dentro da pasta
+exemplo:
+/middlewares/body-parser.ts
+
+Para testar Middlewares necessitamos da biblioteca supertest --> npm i -D supertest @types/supertest
+O supertest serve para emular uma requisição HTTP
+
+Testes de integração (Middlewares)
+
+Criamos rotas fakes e usamos o supertest.
