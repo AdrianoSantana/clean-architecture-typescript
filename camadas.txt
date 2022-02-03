@@ -1,0 +1,10 @@
+Main Layer
+
+Camada onde criamos as instâncias de todas as outras camadas.
+Criamos as rotas.
+Criamos instâncias dos controllers
+Criamos nossos Factorys
+
+Camada Altamente Acoplada. Conhece todas as outras camadas.
+Não criamos testes de unidades para esta camada, apena criamos testes de integração.
+
