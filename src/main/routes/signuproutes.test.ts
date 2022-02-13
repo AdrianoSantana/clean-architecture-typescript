@@ -11,8 +11,8 @@ beforeAll(async () => {
  })
 
  beforeEach(async () => {
-   const accountCollection = MongoHelper.getCollection('accounts')
-   accountCollection.deleteMany({})
+   const accountCollection = await MongoHelper.getCollection('accounts')
+   await accountCollection.deleteMany({})
  })
 
 describe('Signup Routes', () => {
