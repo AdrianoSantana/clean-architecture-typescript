@@ -1,8 +1,7 @@
-import { resolve } from 'path/posix'
 import { AccountModel } from '../../../domain/models/account-model'
 import { MissingParamError, InvalidParamError, ServerError } from '../../errors'
 import { SignUpController } from './signup'
-import { HttpRequest, HttpResponse, EmailValidator, Controller, AddAccount, AddAccountModel } from './signup-protocols'
+import { HttpRequest, HttpResponse, EmailValidator, AddAccount, AddAccountModel } from './signup-protocols'
 import { ok, badRequest, serverError } from '../../helpers/http-helpers'
 
 const makeAddAccount = (): AddAccount => {
